@@ -1,0 +1,7 @@
+
+LED_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+export LED_PORT=7777
+export LED_PIDFILE=$LED_DIR/pidfile.pid
+export LED_LOGFILE=$LED_DIR/server.log
+source $LED_DIR/.venv/bin/activate

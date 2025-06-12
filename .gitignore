@@ -1,0 +1,7 @@
+/.idea
+/server/.idea
+/server/__pycache__
+/server/setenv.sh
+/server/pidfile.pid
+/server/server.log
+/server/.venv

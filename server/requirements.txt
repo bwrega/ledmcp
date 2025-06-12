@@ -1,0 +1,2 @@
+fastapi[all]>=0.115.6,<0.116.0
+RPi.GPIO
