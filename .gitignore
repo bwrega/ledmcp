@@ -5,3 +5,5 @@
 /server/pidfile.pid
 /server/server.log
 /server/.venv
+/mcp/.venv
+/mcp/__pycache__

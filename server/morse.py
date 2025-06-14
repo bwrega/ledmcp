@@ -2,7 +2,7 @@ import morse_talk
 import time
 from led import turn_on, turn_off
 
-SPEED: float = 0.2
+SPEED: float = 0.1
 
 def send_message(text: str) -> None:
     code: str = _encode(text)
