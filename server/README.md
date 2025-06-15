@@ -15,4 +15,6 @@ run `./start.sh` or `./stop.sh`
 Connect a LED via 220 Ohm resistor
 to `GPIO17` pin and `GND` pin.
 
-See pinout: https://randomnerdtutorials.com/raspberry-pi-pinout-gpios/
+See pinout:
+![pinout](img/Raspberry-Pi-Pinout-Random-Nerd-Tutorials.webp)
+https://randomnerdtutorials.com/raspberry-pi-pinout-gpios/
