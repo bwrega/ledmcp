@@ -1,5 +1,5 @@
 from mcp.server.fastmcp import FastMCP
-from led import turn_on, turn_off, cleanup
+from led import turn_on, turn_off
 from morse import send_message
 
 
@@ -22,7 +22,3 @@ def morse(text: str) -> str:
     """Send a message in morse code using the LED."""
     send_message(text)
     return f"Sent morse message: {text}"
-
-@mcp.on_shutdown()
-def on_shutdown() -> None:
-    cleanup() 
