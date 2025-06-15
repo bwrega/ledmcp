@@ -1,34 +1,29 @@
-import re
-from logging import Logger
 from led import turn_on, turn_off, init, cleanup
 from morse import send_message
-from fastapi import FastAPI, Request
-import logging
-import sys
+from fastapi import FastAPI
+import contextlib
+import led_mcp_server
 
-logging.basicConfig(
-    stream=sys.stdout,
-    level="INFO",
-    format="[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s"
-)
-log: Logger = logging.getLogger("main")
+@contextlib.contextmanager
+async def lifespan(app: FastAPI):
+    async with contextlib.AsyncExitStack() as stack:
+        init()
+        await stack.enter_async_context(led_mcp_server.mcp)
+        yield
+        cleanup()
 
-init()
-
-app: FastAPI = FastAPI()
+app: FastAPI = FastAPI(lifespan=lifespan)
 
 @app.get("/led-on")
-def led_on():
+def led_on() -> None:
     turn_on()
 
 @app.get("/led-off")
-def led_off():
+def led_off() -> None:
     turn_off()
 
 @app.get("/morse")
-def morse(text: str):
+def morse(text: str) -> None:
     send_message(text)
 
-@app.on_event("shutdown")
-def shutdown():
-    cleanup()
+app.mount("/mcp", led_mcp_server.mcp.streamable_http_app())
