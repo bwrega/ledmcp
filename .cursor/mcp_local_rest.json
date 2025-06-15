@@ -1,0 +1,17 @@
+{
+    "mcpServers": {
+        "led-controller": {
+            "command": "uv",
+            "args": [
+                "run",
+                "--directory",
+                "c:\\code\\ledmcp\\mcp",
+                "--python",
+                "c:\\code\\ledmcp\\mcp\\.venv",
+                "mcp",
+                "run",
+                "server.py"
+            ]
+        }
+    }
+}
