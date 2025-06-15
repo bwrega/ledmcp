@@ -1,3 +1,15 @@
+## installation
+
+1. create venv:
+```
+uv venv .venv
+```
+
+2. install dependencies
+```
+uv pip install -r requirements.txt
+```
+
 ## how to run
 
 ```
