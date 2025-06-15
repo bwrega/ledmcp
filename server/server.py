@@ -8,7 +8,7 @@ import led_mcp_server
 async def lifespan(app: FastAPI):
     async with contextlib.AsyncExitStack() as stack:
         init()
-        await stack.enter_async_context(led_mcp_server.mcp)
+        await stack.enter_async_context(led_mcp_server.mcp.session_manager.run())
         yield
         cleanup()
 
