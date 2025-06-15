@@ -4,7 +4,7 @@ from fastapi import FastAPI
 import contextlib
 import led_mcp_server
 
-@contextlib.contextmanager
+@contextlib.asynccontextmanager
 async def lifespan(app: FastAPI):
     async with contextlib.AsyncExitStack() as stack:
         init()
